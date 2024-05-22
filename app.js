@@ -26,53 +26,38 @@ const loadArtwork = () => {
 
 
 
-//   const loadArtists = (search) => {
-//     document.getElementById("artists").innerHTML = "";
-//     fetch(
-//       `https://wellness-oasis-clinic-api.onrender.com/doctors/list/?search=${search ? search : ""
-//       }`
-//     )
-//       .then((res) => res.json())
-//       .then((data) => {
-//         displayDoctors(data);
-//       });
-//   };
-//   const displayDoctors = (doctors) => {
-//     doctors?.forEach((doctor) => {
-//       const parent = document.getElementById("doctors");
-//       const div = document.createElement("div");
-//       div.classList.add("doc-card");
-//       div.classList = "border rounded-md";
-//       div.innerHTML = `
-//           <img class="doc-img rounded-t-md" src=${doctor.image} alt="" />
-//               <div class="px-2 py-1 flex flex-col items-start justify-start space-y-2">
-//               <h4 class="font-semibold text-lg mt-4">${doctor?.user}</h4>
-//               <div class="flex flex-row items-start justify-start gap-1">
-//               <p class="bg-gray-300 px-[3px] py-[2px] text-xs w-fit rounded">
-//               ${doctor?.designation[0]}
-//               </p>
-//               <p class="bg-gray-300 px-[3px] py-[2px] text-xs w-fit rounded">
-              
-//               ${doctor?.specialization?.map((item) => {
-//         return `<button>${item}</button>`;
-//       })}
-//               </p>
-//               </div>
-//               <p class="text-xs pb-5">
-//                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis,
-//                 numquam!
-//               </p>
-             
-              
+const getId = () => {
+  const id = new URLSearchParams(window.location.search).get("id");
+  fetch(`https://local-artwork-showcase-api.onrender.com/api/artwork-list/$?id=${id}`)
+    .then((res) => res.json())
+    .then((data) => {
+      console.log(data);
+      displayDetails(data);
+    });
+  };
+
+
+const displayDetails = (Artwork) => {
+    const parent = document.getElementById("artworkdetails-container");
+    const div = document.createElement("div");
+    div.classList =
+      "flex flex-row items-center justify-center gap-10 border w-fit mx-auto rounded-md px-8 py-3";
   
-//               <button class="bg-[#42A9D0] px-[5px] py-[3px] text-white rounded-md"> <a target="_blank" href="docdetails.html?doctorId=${doctor.id
-//         }">Details</a> </button>
-//               </div>
-//           `;
-  
-//       parent.appendChild(div);
-//     });
-//   };
+    div.innerHTML = `
+      <div>
+      <img class="rounded-full w-[210px] h-[210px] border" src=${
+        Artwork.image
+      } alt="" />
+    </div>
+    <div class=""> 
+      <h1 class="text-2xl font-semibold text-[#42A9D0]">${Artwork.title} </h1>
+      <p class="max-w-[350px] text-sm my-2">
+      ${Artwork.description.slice(0, 100)}
+      </p>
+    </div>
+      `;
+    parent.appendChild(div);
+  };
 
 
 
@@ -85,5 +70,5 @@ const loadArtwork = () => {
 
 
 
-
+  getId();
   loadArtwork();
