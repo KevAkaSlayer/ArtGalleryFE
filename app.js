@@ -26,38 +26,38 @@ const loadArtwork = () => {
 
 
 
-const getId = () => {
-  const id = new URLSearchParams(window.location.search).get("id");
-  fetch(`https://local-artwork-showcase-api.onrender.com/api/artwork-list/$?id=${id}`)
-    .then((res) => res.json())
-    .then((data) => {
-      console.log(data);
-      displayDetails(data);
-    });
-  };
+// const getId = () => {
+//   const id = new URLSearchParams(window.location.search).get("id");
+//   fetch(`https://local-artwork-showcase-api.onrender.com/api/artwork-list/$?id=${id}`)
+//     .then((res) => res.json())
+//     .then((data) => {
+//       console.log(data);
+//       displayDetails(data);
+//     });
+//   };
 
 
-const displayDetails = (Artwork) => {
-    const parent = document.getElementById("artworkdetails-container");
-    const div = document.createElement("div");
-    div.classList =
-      "flex flex-row items-center justify-center gap-10 border w-fit mx-auto rounded-md px-8 py-3";
+// const displayDetails = (Artwork) => {
+//     const parent = document.getElementById("artworkdetails-container");
+//     const div = document.createElement("div");
+//     div.classList =
+//       "flex flex-row items-center justify-center gap-10 border w-fit mx-auto rounded-md px-8 py-3";
   
-    div.innerHTML = `
-      <div>
-      <img class="rounded-full w-[210px] h-[210px] border" src=${
-        Artwork.image
-      } alt="" />
-    </div>
-    <div class=""> 
-      <h1 class="text-2xl font-semibold text-[#42A9D0]">${Artwork.title} </h1>
-      <p class="max-w-[350px] text-sm my-2">
-      ${Artwork.description.slice(0, 100)}
-      </p>
-    </div>
-      `;
-    parent.appendChild(div);
-  };
+//     div.innerHTML = `
+//       <div>
+//       <img class="rounded-full w-[210px] h-[210px] border" src=${
+//         Artwork.image
+//       } alt="" />
+//     </div>
+//     <div class=""> 
+//       <h1 class="text-2xl font-semibold text-[#42A9D0]">${Artwork.title} </h1>
+//       <p class="max-w-[350px] text-sm my-2">
+//       ${Artwork.description.slice(0, 100)}
+//       </p>
+//     </div>
+//       `;
+//     parent.appendChild(div);
+//   };
 
 
 
@@ -70,5 +70,5 @@ const displayDetails = (Artwork) => {
 
 
 
-  getId();
+  // getId();
   loadArtwork();
