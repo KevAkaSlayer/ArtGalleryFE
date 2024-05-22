@@ -1,5 +1,5 @@
 const loadArtwork = () => {
-    fetch("http://127.0.0.1:8000/api/artwork-list/")
+    fetch("https://local-artwork-showcase-api.onrender.com/api/artwork-list/")
       .then((res) => res.json())
       .then((data) => displayArtwork(data));
   };

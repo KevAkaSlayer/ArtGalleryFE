@@ -23,7 +23,7 @@ const handleRegistration = (event) => {
     };
     console.log(JSON.stringify(info));
 
-    fetch('http://127.0.0.1:8000/api/register/', {
+    fetch('https://local-artwork-showcase-api.onrender.com/api/register/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(info),
@@ -85,7 +85,7 @@ const handleLogin = (event) => {
 
   console.log(JSON.stringify(info));
 
-  fetch("http://127.0.0.1:8000/api/login/", {
+  fetch("https://local-artwork-showcase-api.onrender.com/api/login/", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(info),
@@ -131,7 +131,7 @@ const handleLogout = () => {
  };
 
   console.log(JSON.stringify(info));
- fetch('http://127.0.0.1:8000/api/logout/', {
+ fetch('https://local-artwork-showcase-api.onrender.com/api/logout/', {
      method: 'POST',
              headers: { 'Content-Type': 'application/json' },
              body: JSON.stringify(info),  
