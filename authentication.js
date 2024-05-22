@@ -46,33 +46,6 @@ const handleRegistration = (event) => {
     });
 };
 
-
-// const handleLogin = (event) => {
-//     event.preventDefault();
-//     const username = getValue("login-username");
-//     const password = getValue("login-password");
-  
-//     if ((username, password)) {
-//       fetch("http://127.0.0.1:8000/api/login//api/token/", {
-//         method: "POST",
-//         headers: { "content-type": "application/json" },
-//         body: JSON.stringify({ username, password }),
-//       })
-//         .then((res) => res.json())
-//         .then((data) => {
-//           console.log(data);
-  
-//           if (data.token && data.user_id) {
-//             localStorage.setItem("token", data.token);
-//             localStorage.setItem("user_id", data.user_id);
-//             window.location.href = "index.html";
-//           }
-//         });
-//     }
-  // };
-
-  
-
 const handleLogin = (event) => {
   event.preventDefault();
   const username = getValue("login-username");
@@ -115,13 +88,6 @@ const handleLogin = (event) => {
 
 
 
-
-
-
-
-
-
-
 const handleLogout = () => {
   const refresh_token = localStorage.getItem("refresh");
   console.log(refresh_token);
@@ -143,11 +109,8 @@ const handleLogout = () => {
      })
          .catch((err) => {  
          });
-
-
-
         localStorage.clear();
-         window.location.href=`./login.html`;
+        window.location.href=`./login.html`;
         
 };
 
