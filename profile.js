@@ -1,7 +1,7 @@
 
 const handleProfile = (Artist) => {
     const access = localStorage.getItem("access");
-    fetch('http://127.0.0.1:8000/api/profile/', {
+    fetch('https://local-artwork-showcase-api.onrender.com/api/profile/', {
         method: 'GET',
         headers: {
             Authorization: `Bearer ${access}`,

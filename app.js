@@ -25,7 +25,6 @@ const loadArtwork = () => {
   };
 
 
-
 // const getId = () => {
 //   const id = new URLSearchParams(window.location.search).get("id");
 //   fetch(`https://local-artwork-showcase-api.onrender.com/api/artwork-list/$?id=${id}`)

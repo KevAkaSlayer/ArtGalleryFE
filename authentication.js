@@ -9,8 +9,6 @@ const handleRegistration = (event) => {
     const password = getValue("password");
     const password2 = getValue("confirm_password");
     const bio = getValue("bio");
-    const profile_pic = getValue("profile_picture");
-    
 
     const info = {
       username,
@@ -18,7 +16,6 @@ const handleRegistration = (event) => {
       password,
       password2,
       bio,
-      profile_pic,
       
     };
     console.log(JSON.stringify(info));
@@ -33,11 +30,11 @@ const handleRegistration = (event) => {
         console.log(data);
         if (data.status === 1) {
           alert('Registration successful');
-          window.location.href = `login.html`;
+          window.location.href = `./login.html`;
         }
         else{
           alert('Registration failed');
-         window.location.href = `./index.html`;
+         window.location.href = `./register.html`;
       }
     })
     .catch((err) => {
@@ -74,6 +71,7 @@ const handleLogin = (event) => {
         localStorage.setItem("access", data.access);
         localStorage.setItem("username", data.username);
         window.location.href = `./index.html`;
+        alert("Login successful");
       } else {
         console.log("Login failed");
         alert("Login failed");
@@ -110,6 +108,7 @@ const handleLogout = () => {
          .catch((err) => {  
          });
         localStorage.clear();
+        alert('You have been logged out');
         window.location.href=`./login.html`;
         
 };
