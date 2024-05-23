@@ -1,5 +1,5 @@
 
-const handleProfile = (Artist) => {
+const handleProfile = () => {
     const access = localStorage.getItem("access");
     fetch('https://local-artwork-showcase-api.onrender.com/api/profile/', {
         method: 'GET',
@@ -11,7 +11,7 @@ const handleProfile = (Artist) => {
         .then((data) => {
             console.log('inside data');
             console.log(data);
-            {
+            if(data.status === 1){
                 const parent = document.getElementById("profile-container");
                 const div = document.createElement("div");
                 div.classList.add("profile-card");
@@ -23,11 +23,21 @@ const handleProfile = (Artist) => {
                         <p class="text-sm pt-2">
                          ${data.bio}
                         </p>
+                        <div>
+                        <button type="submit" class="bg-[#42A9D0] w-30 mx-auto rounded text-white px-[4px] py-[2px] mt-6 hover:cursor-pointer hover:opacity-90"> <a href="./createartwork.html">CreateNew</a></button>
+                        <button type="submit" class="bg-[#42A9D0] w-40 mx-auto rounded text-white px-[6px] py-[2px] mt-6 hover:cursor-pointer hover:opacity-90"> <a href="./updateprofile.html">ProfileUpdate</a></button>
+                    </div>
                        
                         </div>
                     `;
                 parent.appendChild(div);
                 
+            }
+            else {
+                console.log('error');
+                alert('Please login to view profile');
+                window.location.href = `./login.html`;
+
             }
         })
 
